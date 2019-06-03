@@ -137,6 +137,7 @@ module DeviseTokenAuth
     def render_create_error
       render json: {
         status: 'error',
+        data:   resource_data.reject{ |key,value| value == nil },
         errors: resource_errors
       }, status: 422
     end
